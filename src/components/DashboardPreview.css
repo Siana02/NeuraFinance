@@ -1,0 +1,167 @@
+.dashboard {
+  background: var(--gray-bg);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint grid overlay */
+.dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(10, 31, 68, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 31, 68, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.section-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  animation: fadeIn 0.6s ease both;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  animation: fadeUp 0.7s ease 0.1s both;
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: #637082;
+  max-width: 520px;
+  margin: 0 auto 3rem;
+  animation: fadeUp 0.7s ease 0.2s both;
+}
+
+/* ── Cards grid ── */
+.dash-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.dash-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.7s ease both;
+}
+
+.dash-card:nth-child(1) { animation-delay: 0.15s; }
+.dash-card:nth-child(2) { animation-delay: 0.25s; }
+.dash-card:nth-child(3) { animation-delay: 0.35s; }
+.dash-card:nth-child(4) { animation-delay: 0.45s; }
+
+.dash-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.13), var(--shadow-glow);
+}
+
+.dash-card--blue:hover  { border-color: var(--blue); }
+.dash-card--red:hover   { border-color: #e74c3c; }
+.dash-card--green:hover { border-color: var(--green); }
+.dash-card--gold:hover  { border-color: #f39c12; }
+
+/* ── Icon ── */
+.dash-icon {
+  width: 64px; height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.dash-icon--blue  { background: rgba(30, 144, 255, 0.12); color: var(--blue); }
+.dash-icon--red   { background: rgba(231, 76, 60, 0.12);  color: #e74c3c; }
+.dash-icon--green { background: rgba(46, 204, 113, 0.12); color: var(--green); }
+.dash-icon--gold  { background: rgba(243, 156, 18, 0.12); color: #f39c12; }
+
+/* ── Badge ── */
+.dash-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.9rem;
+}
+
+.dash-badge--blue  { background: rgba(30, 144, 255, 0.12); color: var(--blue); }
+.dash-badge--red   { background: rgba(231, 76, 60, 0.12);  color: #e74c3c; }
+.dash-badge--green { background: rgba(46, 204, 113, 0.12); color: var(--green); }
+.dash-badge--gold  { background: rgba(243, 156, 18, 0.12); color: #f39c12; }
+
+.dash-card h3 {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.dash-card p {
+  font-size: 0.88rem;
+  color: #637082;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Mini progress bar ── */
+.dash-bar {
+  height: 4px;
+  background: #eaeef2;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.dash-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  width: 68%;
+  transition: width 1s ease;
+}
+
+.dash-card--blue  .dash-bar-fill { background: var(--blue); }
+.dash-card--red   .dash-bar-fill { background: #e74c3c; width: 45%; }
+.dash-card--green .dash-bar-fill { background: var(--green); width: 82%; }
+.dash-card--gold  .dash-bar-fill { background: #f39c12; width: 91%; }
+
+/* ── Mobile ── */
+@media (max-width: 1024px) {
+  .dash-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .dash-cards { grid-template-columns: 1fr; }
+  .dashboard { padding: 4rem 1.25rem; }
+}
