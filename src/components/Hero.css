@@ -195,7 +195,7 @@
 
 .float-card--left  { top: 30%; left: 5%; animation-delay: 0s; }
 .float-card--right { top: 25%; right: 5%; animation-delay: 1.5s; }
-.float-card--bottom { bottom: 18%; left: 50%; transform: translateX(-50%); animation-delay: 0.8s; }
+.float-card--bottom { bottom: 12%; right: 5%; animation-delay: 0.8s; }
 
 .float-label {
   font-size: 0.7rem;
